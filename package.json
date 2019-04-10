@@ -13,9 +13,9 @@
   "author": "Eugene Lim",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "lowdb": "^1.0.0",
-    "telegraf": "^3.22.1"
+    "telegraf": "^3.28.0"
   }
 }
