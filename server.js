@@ -63,18 +63,21 @@ bot.telegram.getMe().then((botInfo) => {
 });
 
 bot.start(async (ctx) => {
-  if (ctx.chat.title === undefined)
+  if (ctx.chat.title === undefined) {
     return ctx.reply('Opps, maybe try again? Did you make me an admin?');
+  }
 
-  if (!ctx.chat.title.match('^[A-Z0-9]+ Discussion$'))
+  if (!ctx.chat.title.match('^[A-Z0-9]+ Discussion$')) {
     return ctx.reply(
       'Your group name is invalid. Ensure that it is in the form of "CS1231 Discussion".',
     );
+  }
 
-  if (ctx.chat.type !== 'supergroup')
+  if (ctx.chat.type !== 'supergroup') {
     return ctx.reply(
       'Your group is not a supergroup. Please convert it into one.',
     );
+  }
 
   const moduleCode = ctx.chat.title.split(' ')[0];
   const chatIdExist =
@@ -88,8 +91,9 @@ bot.start(async (ctx) => {
       .find({ moduleCode: moduleCode })
       .size() > 0;
 
-  if (chatIdExist || moduleCodeExist)
+  if (chatIdExist || moduleCodeExist) {
     return ctx.reply('This chat has already been registered');
+  }
 
   ctx
     .exportChatInviteLink()
