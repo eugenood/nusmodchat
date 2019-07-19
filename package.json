@@ -4,7 +4,8 @@
   "description": "A community-maintained portal to view all available telegram chats for NUS modules.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "prettify": "prettier --write *.js **/*.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,12 @@
   "author": "Eugene Lim",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "lowdb": "^1.0.0",
-    "telegraf": "^3.22.1"
+    "telegraf": "^3.28.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
   }
 }
