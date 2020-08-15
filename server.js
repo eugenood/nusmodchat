@@ -116,4 +116,21 @@ bot.on(['new_chat_members', 'left_chat_member'], (ctx) => {
   }
 });
 
+/**
+ * Deletes /s messages that people send when they tap on `/s`, when people use
+ * it to denote sarcasm. Sigh.
+ */
+bot.on('message', (ctx) => {
+  if (ctx.message.text) {
+    const message = ctx.message.text;
+    if (message === '/s') {
+      try {
+        ctx.deleteMessage(ctx.message.message_id);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+});
+
 bot.startPolling();
